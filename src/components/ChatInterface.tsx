@@ -424,7 +424,7 @@ export default function ChatInterface() {
   };
 
   return (
-    <div className="absolute inset-0 pointer-events-none flex flex-col justify-end p-4 sm:p-8 pb-24 md:pb-8">
+    <div className="absolute inset-0 pointer-events-none flex flex-col justify-end p-4 sm:p-8">
         {/* 顶部按钮组 */}
         <div className="absolute top-4 right-4 z-50 pointer-events-auto flex gap-2">
             <BeautifulButton

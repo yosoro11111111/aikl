@@ -21,10 +21,13 @@ try {
     .filter(file => file.endsWith('.vrm'))
     .map(file => {
       const name = file.replace('.vrm', '');
-      // 使用URL安全的base64编码文件名，避免URL路径分隔符问题
-      const base64Name = Buffer.from(file).toString('base64url');
-      // 移除可能的等号
-      const urlSafeBase64Name = base64Name.replace(/=/g, '');
+      // 使用标准base64编码，然后手动替换不安全的字符
+      const base64Name = Buffer.from(file).toString('base64');
+      // 替换不安全的字符并移除等号
+      const urlSafeBase64Name = base64Name
+        .replace(/\+/g, '-')  // 替换+为-
+        .replace(/\//g, '_')  // 替换/为_
+        .replace(/=/g, '');   // 移除等号
       return {
         id: name,
         name: name,

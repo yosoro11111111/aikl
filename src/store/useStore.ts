@@ -604,7 +604,7 @@ export const useStore = create<AppState>()(
         activeModels: state.activeModels,
         currentModel: state.currentModel, // Persist current model
       }),
-      version: 2,
+      version: 1,
       migrate: (persistedState: any, version: number) => {
         if (version === 0) {
           // Migration from version 0 to 1: Fix default model
@@ -647,45 +647,6 @@ export const useStore = create<AppState>()(
             activeModels,
           };
         }
-        
-        // Migration from version 1 to 2: Update model URLs to use API route
-        if (version === 1) {
-          // Function to update model URL to use API route
-          const updateModelUrl = (model: any) => {
-            // Skip custom models (using blob URLs) and models already using API route
-            if (model.url.startsWith('blob:') || model.url.startsWith('/api/models/files/')) {
-              return model;
-            }
-            
-            // Extract filename from URL
-            const filename = model.url.split('/').pop();
-            if (!filename) return model;
-            
-            // Create new URL using API route with Base64-encoded filename
-            const base64Name = Buffer.from(filename).toString('base64').replace(/=/g, '');
-            return {
-              ...model,
-              url: `/api/models/files/${base64Name}`
-            };
-          };
-          
-          // Update currentModel
-          let currentModel = persistedState.currentModel;
-          if (currentModel) {
-            currentModel = updateModelUrl(currentModel);
-          }
-          
-          // Update activeModels
-          let activeModels = persistedState.activeModels || [];
-          activeModels = activeModels.map((m: any) => updateModelUrl(m));
-          
-          return {
-            ...persistedState,
-            currentModel,
-            activeModels,
-          };
-        }
-        
         return persistedState as AppState;
       },
     }
