@@ -47,7 +47,7 @@ export default function ModelSelector() {
           const models = await response.json();
           setAvailableModels(models);
           
-          // 重置activeModels和currentModel，确保使用新的API路由格式
+          // 重置currentModel，确保使用新的API路由格式
           // 查找第一个可用模型作为默认模型
           if (models.length > 0) {
             setCurrentModel(models[0]);
@@ -111,7 +111,14 @@ export default function ModelSelector() {
       }
     } else {
       if (activeModels.length < 3) {
-        addActiveModel(model);
+        // 确保使用从API获取的模型，而不是默认availableModels数组中的模型
+        // 查找availableModels中具有相同id的模型
+        const updatedModel = availableModels.find(m => m.id === model.id);
+        if (updatedModel) {
+          addActiveModel(updatedModel);
+        } else {
+          addActiveModel(model);
+        }
       }
     }
   };
