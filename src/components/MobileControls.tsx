@@ -17,7 +17,8 @@ import {
   X,
   Mic,
   MicOff,
-  Gift
+  Gift,
+  Heart
 } from 'lucide-react';
 import { useState } from 'react';
 import { useGiftSystem } from '@/hooks/useGiftSystem';
@@ -37,18 +38,12 @@ export default function MobileControls() {
   } = useStore();
 
   const { fileInputRef, handleGiftClick, processFile } = useGiftSystem();
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   if (isPhotoMode) return null;
 
-  const buttons = [
-    { 
-      id: 'settings', 
-      icon: Settings, 
-      label: '设置', 
-      action: () => setActivePanel(activePanel === 'settings' ? 'none' : 'settings'),
-      isActive: activePanel === 'settings'
-    },
+  // 主要功能按钮
+  const mainButtons = [
     { 
       id: 'models', 
       icon: Users, 
@@ -63,6 +58,17 @@ export default function MobileControls() {
       action: () => setActivePanel(activePanel === 'scenes' ? 'none' : 'scenes'),
       isActive: activePanel === 'scenes'
     },
+    { 
+      id: 'settings', 
+      icon: Settings, 
+      label: '设置', 
+      action: () => setActivePanel(activePanel === 'settings' ? 'none' : 'settings'),
+      isActive: activePanel === 'settings'
+    }
+  ];
+
+  // 更多功能按钮
+  const moreButtons = [
     { 
       id: 'tasks', 
       icon: ClipboardList, 
@@ -91,7 +97,6 @@ export default function MobileControls() {
       action: handleGiftClick,
       isActive: false
     },
-    // System Controls
     {
       id: 'bgm',
       icon: Music,
@@ -123,57 +128,113 @@ export default function MobileControls() {
   ];
 
   return (
-    <div className="fixed top-4 left-0 right-0 z-50 flex justify-center md:hidden pointer-events-none">
-      <div className="pointer-events-auto">
+    <>
+      {/* 底部导航栏 */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden pointer-events-none">
+        <div className="pointer-events-auto">
+          {/* 主要功能导航栏 */}
           <motion.div 
-            layout
-            initial={false}
-            className={`ui-glass flex items-center overflow-hidden transition-all ${
-                isExpanded ? 'rounded-[var(--radius-lg)] p-2 gap-2 max-w-[95vw]' : 'rounded-[var(--radius-pill)] p-2'
-            } shadow-lg`}
+            className="ui-glass flex items-center justify-around py-3 px-4 shadow-lg"
+            initial={{ y: 100 }}
+            animate={{ y: 0 }}
+            transition={{ type: 'spring', damping: 20 }}
           >
-            <Button
-              layout
-              onClick={() => setIsExpanded(!isExpanded)}
-              variant="glass"
-              size="icon"
-              className="flex-shrink-0 text-pink-500"
-              aria-label={isExpanded ? '收起菜单' : '展开菜单'}
-              title={isExpanded ? '收起菜单' : '展开菜单'}
+            {mainButtons.map((btn) => (
+              <motion.button
+                key={btn.id}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => btn.action()}
+                className={`flex flex-col items-center gap-1 px-4 py-2 transition-all ${
+                  btn.isActive 
+                    ? 'text-pink-500' 
+                    : 'text-gray-600 hover:text-pink-400'
+                }`}
+                title={btn.label}
+                aria-label={btn.label}
+              >
+                <btn.icon size={24} />
+                <span className="text-xs font-medium">{btn.label}</span>
+              </motion.button>
+            ))}
+            
+            {/* 更多按钮 */}
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="flex flex-col items-center gap-1 px-4 py-2 text-gray-600 hover:text-pink-400"
+              title="更多"
+              aria-label="更多"
             >
-              {isExpanded ? <X size={20} /> : <Menu size={20} />}
-            </Button>
-
-            <AnimatePresence>
-                {isExpanded && (
-                    <motion.div
-                        initial={{ opacity: 0, width: 0 }}
-                        animate={{ opacity: 1, width: 'auto' }}
-                        exit={{ opacity: 0, width: 0 }}
-                        className="flex gap-2 overflow-x-auto custom-scrollbar items-center pr-1"
-                    >
-                        {buttons.map((btn) => (
-                            <motion.button
-                                key={btn.id}
-                                layout
-                                whileTap={{ scale: 0.9 }}
-                                onClick={() => btn.action()}
-                                className={`ui-focus-ring p-3 rounded-[var(--radius-pill)] flex-shrink-0 transition-all ${
-                                    btn.isActive 
-                                        ? 'bg-pink-500 text-white shadow-pink-500/30 shadow-md' 
-                                        : 'bg-white/70 text-gray-700 hover:bg-white/90'
-                                }`}
-                                title={btn.label}
-                                aria-label={btn.label}
-                            >
-                                <btn.icon size={20} />
-                            </motion.button>
-                        ))}
-                    </motion.div>
-                )}
-            </AnimatePresence>
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              <span className="text-xs font-medium">更多</span>
+            </motion.button>
           </motion.div>
+        </div>
       </div>
+
+      {/* 更多功能弹出菜单 */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            transition={{ type: 'spring', damping: 20 }}
+            className="fixed bottom-24 left-0 right-0 z-50 md:hidden pointer-events-none"
+          >
+            <div className="pointer-events-auto">
+              <motion.div 
+                className="ui-glass mx-4 rounded-t-2xl shadow-xl"
+              >
+                <div className="grid grid-cols-4 gap-4 p-4">
+                  {moreButtons.map((btn) => (
+                    <motion.button
+                      key={btn.id}
+                      whileTap={{ scale: 0.9 }}
+                      onClick={() => {
+                        btn.action();
+                        // 自动关闭菜单
+                        setIsMenuOpen(false);
+                      }}
+                      className={`flex flex-col items-center gap-2 p-3 rounded-xl transition-all ${
+                        btn.isActive 
+                          ? 'bg-pink-500/20 text-pink-500' 
+                          : 'bg-white/10 text-gray-600 hover:bg-white/20'
+                      }`}
+                      title={btn.label}
+                      aria-label={btn.label}
+                    >
+                      <btn.icon size={24} />
+                      <span className="text-xs font-medium text-center">{btn.label}</span>
+                    </motion.button>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* 浮动操作按钮 - 快速拍照 */}
+      <motion.div 
+        className="fixed right-6 bottom-32 z-50 md:hidden pointer-events-none"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.5 }}
+      >
+        <div className="pointer-events-auto">
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            onClick={togglePhotoMode}
+            className="bg-gradient-to-r from-pink-500 to-purple-600 rounded-full p-4 shadow-lg flex items-center justify-center"
+            title="拍照"
+            aria-label="拍照"
+          >
+            <Camera size={24} className="text-white" />
+          </motion.button>
+        </div>
+      </motion.div>
+
       <input 
         type="file" 
         ref={fileInputRef} 
@@ -181,6 +242,6 @@ export default function MobileControls() {
         onChange={processFile}
         accept="image/*,text/*,.md,.txt,.json,.js,.ts"
       />
-    </div>
+    </>
   );
 }
