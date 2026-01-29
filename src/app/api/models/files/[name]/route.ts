@@ -7,8 +7,8 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
   try {
     // 解析动态路由参数
     const resolvedParams = await params;
-    // 解码base64文件名
-    const fileName = Buffer.from(resolvedParams.name, 'base64').toString('utf8');
+    // 解码URL安全的base64文件名
+    const fileName = Buffer.from(resolvedParams.name, 'base64url').toString('utf8');
     
     // 构建正确的静态文件URL
     const host = request.headers.get('host') || 'localhost:3000';

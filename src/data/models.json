@@ -100,7 +100,7 @@
   {
     "id": "万叶",
     "name": "万叶",
-    "url": "/api/models/files/5LiH5Y+2LnZybQ",
+    "url": "/api/models/files/5LiH5Y-2LnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -114,7 +114,7 @@
   {
     "id": "久岐忍",
     "name": "久岐忍",
-    "url": "/api/models/files/5LmF5bKQ5b+NLnZybQ",
+    "url": "/api/models/files/5LmF5bKQ5b-NLnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -135,14 +135,14 @@
   {
     "id": "优菈 (1)",
     "name": "优菈 (1)",
-    "url": "/api/models/files/5LyY6I+IICgxKS52cm0",
+    "url": "/api/models/files/5LyY6I-IICgxKS52cm0",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "优菈 (2)",
     "name": "优菈 (2)",
-    "url": "/api/models/files/5LyY6I+IICgyKS52cm0",
+    "url": "/api/models/files/5LyY6I-IICgyKS52cm0",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -205,7 +205,7 @@
   {
     "id": "可莉",
     "name": "可莉",
-    "url": "/api/models/files/5Y+v6I6JLnZybQ",
+    "url": "/api/models/files/5Y-v6I6JLnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -240,21 +240,21 @@
   {
     "id": "安柏",
     "name": "安柏",
-    "url": "/api/models/files/5a6J5p+PLnZybQ",
+    "url": "/api/models/files/5a6J5p-PLnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "安柏2",
     "name": "安柏2",
-    "url": "/api/models/files/5a6J5p+PMi52cm0",
+    "url": "/api/models/files/5a6J5p-PMi52cm0",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "希儿",
     "name": "希儿",
-    "url": "/api/models/files/5biM5YS/LnZybQ",
+    "url": "/api/models/files/5biM5YS_LnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -282,28 +282,28 @@
   {
     "id": "早柚",
     "name": "早柚",
-    "url": "/api/models/files/5pep5p+aLnZybQ",
+    "url": "/api/models/files/5pep5p-aLnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "枫原万叶",
     "name": "枫原万叶",
-    "url": "/api/models/files/5p6r5Y6f5LiH5Y+2LnZybQ",
+    "url": "/api/models/files/5p6r5Y6f5LiH5Y-2LnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "柯莱",
     "name": "柯莱",
-    "url": "/api/models/files/5p+v6I6xLnZybQ",
+    "url": "/api/models/files/5p-v6I6xLnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "派蒙",
     "name": "派蒙",
-    "url": "/api/models/files/5rS+6JKZLnZybQ",
+    "url": "/api/models/files/5rS-6JKZLnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -317,7 +317,7 @@
   {
     "id": "温迪",
     "name": "温迪",
-    "url": "/api/models/files/5rip6L+qLnZybQ",
+    "url": "/api/models/files/5rip6L-qLnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -331,21 +331,21 @@
   {
     "id": "珊瑚宫心海",
     "name": "珊瑚宫心海",
-    "url": "/api/models/files/54+K55Ga5a6r5b+D5rW3LnZybQ",
+    "url": "/api/models/files/54-K55Ga5a6r5b-D5rW3LnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "珐露珊",
     "name": "珐露珊",
-    "url": "/api/models/files/54+Q6Zyy54+KLnZybQ",
+    "url": "/api/models/files/54-Q6Zyy54-KLnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "班尼特",
     "name": "班尼特",
-    "url": "/api/models/files/54+t5bC854m5LnZybQ",
+    "url": "/api/models/files/54-t5bC854m5LnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -429,7 +429,7 @@
   {
     "id": "纳西妲",
     "name": "纳西妲",
-    "url": "/api/models/files/57qz6KW/5aayLnZybQ",
+    "url": "/api/models/files/57qz6KW_5aayLnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -457,7 +457,7 @@
   {
     "id": "艾尔海森",
     "name": "艾尔海森",
-    "url": "/api/models/files/6Im+5bCU5rW35qOuLnZybQ",
+    "url": "/api/models/files/6Im-5bCU5rW35qOuLnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -485,14 +485,14 @@
   {
     "id": "菲谢尔 (2)",
     "name": "菲谢尔 (2)",
-    "url": "/api/models/files/6I+y6LCi5bCUICgyKS52cm0",
+    "url": "/api/models/files/6I-y6LCi5bCUICgyKS52cm0",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "蔡诺",
     "name": "蔡诺",
-    "url": "/api/models/files/6JSh6K+6LnZybQ",
+    "url": "/api/models/files/6JSh6K-6LnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -506,7 +506,7 @@
   {
     "id": "诺艾尔",
     "name": "诺艾尔",
-    "url": "/api/models/files/6K+66Im+5bCULnZybQ",
+    "url": "/api/models/files/6K-66Im-5bCULnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -520,7 +520,7 @@
   {
     "id": "迪卢克 (2)",
     "name": "迪卢克 (2)",
-    "url": "/api/models/files/6L+q5Y2i5YWLICgyKS52cm0",
+    "url": "/api/models/files/6L-q5Y2i5YWLICgyKS52cm0",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -541,14 +541,14 @@
   {
     "id": "长野原宵宫",
     "name": "长野原宵宫",
-    "url": "/api/models/files/6ZW/6YeO5Y6f5a615a6rLnZybQ",
+    "url": "/api/models/files/6ZW_6YeO5Y6f5a615a6rLnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "阿蕾奇诺",
     "name": "阿蕾奇诺",
-    "url": "/api/models/files/6Zi/6JW+5aWH6K+6LnZybQ",
+    "url": "/api/models/files/6Zi_6JW-5aWH6K-6LnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -576,7 +576,7 @@
   {
     "id": "香菱",
     "name": "香菱",
-    "url": "/api/models/files/6aaZ6I+xLnZybQ",
+    "url": "/api/models/files/6aaZ6I-xLnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
@@ -590,14 +590,14 @@
   {
     "id": "鹿野院平藏 (2)",
     "name": "鹿野院平藏 (2)",
-    "url": "/api/models/files/6bm/6YeO6Zmi5bmz6JePICgyKS52cm0",
+    "url": "/api/models/files/6bm_6YeO6Zmi5bmz6JePICgyKS52cm0",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "鹿野院平藏",
     "name": "鹿野院平藏",
-    "url": "/api/models/files/6bm/6YeO6Zmi5bmz6JePLnZybQ",
+    "url": "/api/models/files/6bm_6YeO6Zmi5bmz6JePLnZybQ",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   }
