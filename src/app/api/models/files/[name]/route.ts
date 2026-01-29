@@ -1,12 +1,14 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 
 // 使用Edge Runtime，满足Cloudflare Pages要求
 export const runtime = 'edge';
 
-export async function GET(request: Request, { params }: { params: { name: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ name: string }> }) {
   try {
+    // 解析动态路由参数
+    const resolvedParams = await params;
     // 解码base64文件名
-    const fileName = Buffer.from(params.name, 'base64').toString('utf8');
+    const fileName = Buffer.from(resolvedParams.name, 'base64').toString('utf8');
     
     // 构建静态文件路径
     const filePath = `https://${request.headers.get('host') || 'localhost:3000'}/models/${encodeURIComponent(fileName)}`;
