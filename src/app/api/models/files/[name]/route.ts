@@ -22,21 +22,10 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       }
     }
     
-    // 在开发环境中，重定向到本地静态文件
-    // 在生产环境中，重定向到正确的静态文件URL
-    const isDevelopment = process.env.NODE_ENV === 'development';
-    
-    if (isDevelopment) {
-      // 开发环境：重定向到本地静态文件
-      const localUrl = `/models/${encodeURIComponent(fileName)}`;
-      return NextResponse.redirect(new URL(localUrl, request.url));
-    } else {
-      // 生产环境：重定向到正确的静态文件URL
-      // 这里需要根据您的实际部署环境调整URL
-      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://ll.yosoro.site';
-      const staticUrl = `${baseUrl}/models/${encodeURIComponent(fileName)}`;
-      return NextResponse.redirect(staticUrl);
-    }
+    // 始终重定向到相对路径的静态文件
+    // Next.js会自动处理静态文件服务，无论是在开发环境还是生产环境
+    const staticUrl = `/models/${encodeURIComponent(fileName)}`;
+    return NextResponse.redirect(new URL(staticUrl, request.url));
   } catch (error) {
     console.error('Error serving model file:', error);
     return new NextResponse('Internal Server Error', { status: 500 });
