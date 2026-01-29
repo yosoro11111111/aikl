@@ -22,10 +22,44 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       }
     }
     
-    // 始终重定向到相对路径的静态文件
-    // Next.js会自动处理静态文件服务，无论是在开发环境还是生产环境
-    const staticUrl = `/models/${encodeURIComponent(fileName)}`;
-    return NextResponse.redirect(new URL(staticUrl, request.url));
+    // 在Edge Runtime中，我们需要使用fetch来获取静态文件
+    // 首先尝试从当前部署的域名获取文件
+    const deploymentUrl = `${request.nextUrl.origin}/models/${encodeURIComponent(fileName)}`;
+    
+    // 使用fetch获取文件内容
+    const response = await fetch(deploymentUrl);
+    
+    if (response.ok) {
+      // 如果文件存在，返回文件内容
+      const fileContent = await response.arrayBuffer();
+      
+      return new NextResponse(fileContent, {
+        headers: {
+          'Content-Type': 'application/octet-stream',
+          'Content-Disposition': `inline; filename="${encodeURIComponent(fileName)}"`,
+          'Cache-Control': 'public, max-age=31536000, immutable'
+        }
+      });
+    }
+    
+    // 如果当前部署域名找不到文件，尝试备用URL
+    const fallbackUrl = `https://ll.yosoro.site/models/${encodeURIComponent(fileName)}`;
+    const fallbackResponse = await fetch(fallbackUrl);
+    
+    if (fallbackResponse.ok) {
+      const fileContent = await fallbackResponse.arrayBuffer();
+      
+      return new NextResponse(fileContent, {
+        headers: {
+          'Content-Type': 'application/octet-stream',
+          'Content-Disposition': `inline; filename="${encodeURIComponent(fileName)}"`,
+          'Cache-Control': 'public, max-age=31536000, immutable'
+        }
+      });
+    }
+    
+    // 如果两个URL都找不到文件，返回404
+    return new NextResponse('File not found', { status: 404 });
   } catch (error) {
     console.error('Error serving model file:', error);
     return new NextResponse('Internal Server Error', { status: 500 });
