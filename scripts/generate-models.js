@@ -21,17 +21,13 @@ try {
     .filter(file => file.endsWith('.vrm'))
     .map(file => {
       const name = file.replace('.vrm', '');
-      // 使用标准base64编码，然后手动替换不安全的字符
-      const base64Name = Buffer.from(file).toString('base64');
-      // 替换不安全的字符并移除等号
-      const urlSafeBase64Name = base64Name
-        .replace(/\+/g, '-')  // 替换+为-
-        .replace(/\//g, '_')  // 替换/为_
-        .replace(/=/g, '');   // 移除等号
+      
+      // 临时解决方案：始终使用静态文件URL
+      // 这样可以避免生产环境API路由的问题
       return {
         id: name,
         name: name,
-        url: `/api/models/files/${urlSafeBase64Name}`,
+        url: `/models/${encodeURIComponent(file)}`,
         description: '本地模型',
         defaultEmotion: 'neutral'
       };
