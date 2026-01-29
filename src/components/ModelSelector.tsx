@@ -47,10 +47,16 @@ export default function ModelSelector() {
           const models = await response.json();
           setAvailableModels(models);
           
-          // 重置currentModel，确保使用新的API路由格式
-          // 查找第一个可用模型作为默认模型
+          // 重置currentModel和activeModels，确保使用新的API路由格式
           if (models.length > 0) {
             setCurrentModel(models[0]);
+            
+            // 清空activeModels并添加第一个可用模型
+            activeModels.forEach(model => {
+              removeActiveModel(model.id);
+            });
+            
+            addActiveModel(models[0]);
           }
         }
       } catch (error) {
@@ -59,7 +65,7 @@ export default function ModelSelector() {
     };
 
     fetchModels();
-  }, [setAvailableModels, setCurrentModel]);
+  }, [setAvailableModels, setCurrentModel, activeModels, removeActiveModel, addActiveModel]);
 
   const togglePanel = () => setActivePanel(isOpen ? 'none' : 'models');
 
