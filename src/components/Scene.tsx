@@ -10,7 +10,7 @@ import {
   Sky,
   CameraShake,
 } from '@react-three/drei';
-import { Suspense, useEffect } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import { useStore } from '@/store/useStore';
 import { Avatar } from './Avatar';
@@ -26,8 +26,46 @@ import park from '@pmndrs/assets/hdri/park.exr';
 import sunset from '@pmndrs/assets/hdri/sunset.exr';
 
 function CameraController() {
-  const { resetCamera, triggerResetCamera, focusTarget } = useStore();
+  const { resetCamera, triggerResetCamera, focusTarget, activeModels } = useStore();
   const { camera, controls } = useThree();
+  
+  // 检测是否为移动端
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+  
+  // 根据人物数量和设备类型计算相机距离
+  const getOptimalCameraDistance = () => {
+    if (!isMobile) {
+      return 3.5; // 桌面端默认距离
+    }
+    
+    // 移动端根据人物数量调整距离
+    const modelCount = activeModels.length;
+    switch (modelCount) {
+      case 0:
+        return 3.5;
+      case 1:
+        return 3.0;
+      case 2:
+        return 3.8;
+      case 3:
+        return 4.5;
+      default:
+        return 3.5;
+    }
+  };
 
   useFrame((state, delta) => {
     if (controls) {
@@ -35,7 +73,8 @@ function CameraController() {
       
       if (resetCamera) {
          // Reset logic (Smooth transition)
-         const targetPos = new THREE.Vector3(0, 0.8, 3.5);
+         const optimalDistance = getOptimalCameraDistance();
+         const targetPos = new THREE.Vector3(0, 0.8, optimalDistance);
          const targetLookAt = new THREE.Vector3(0, 0.8, 0);
          
          camera.position.lerp(targetPos, delta * 2);

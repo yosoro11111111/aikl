@@ -113,7 +113,7 @@ export class VRMAnalyzer {
       
       actionInfo.expressions = expressionPresets.map(preset => ({
         preset,
-        available: vrm.expressionManager.getExpression(preset) !== null,
+        available: vrm.expressionManager!.getExpression(preset) !== null,
         intensity: 1.0
       }));
     }

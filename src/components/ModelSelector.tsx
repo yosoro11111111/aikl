@@ -8,7 +8,7 @@ import { Panel } from '@/components/ui/Panel';
 import { Button } from '@/components/ui/Button';
 
 export default function ModelSelector() {
-  const { availableModels, activeModels, addActiveModel, removeActiveModel, setAvailableModels, setCurrentModel, apiKey, addMessage, activePanel, setActivePanel, showCharacters, toggleCharacters } = useStore();
+  const { availableModels, activeModels, addActiveModel, removeActiveModel, setAvailableModels, setCurrentModel, apiKey, addMessage, activePanel, setActivePanel } = useStore();
   const isOpen = activePanel === 'models';
   const fileInputRef = useRef<HTMLInputElement>(null);
 

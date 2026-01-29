@@ -61,8 +61,7 @@ export const useActionAdapter = (vrm: VRM | null, modelId: string, fileName: str
           addMessage({
             id: `action-analysis-${Date.now()}`,
             role: 'system',
-            content: `检测到 ${actionInfo.modelName} 的特殊动作: ${actionInfo.specialActions.map(a => a.name).join(', ')}`,
-            timestamp: Date.now()
+            content: `检测到 ${actionInfo.modelName} 的特殊动作: ${actionInfo.specialActions.map(a => a.name).join(', ')}`
           });
         }
 

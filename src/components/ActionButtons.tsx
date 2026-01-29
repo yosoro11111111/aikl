@@ -4,13 +4,30 @@ import { useStore } from '@/store/useStore';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, Maximize, RotateCcw, CornerDownLeft, ArrowLeftRight, ArrowUp } from 'lucide-react';
 import { Html } from '@react-three/drei';
+import { useEffect, useState } from 'react';
 
 export function ActionButtons() {
   const { setAction, toggleIsMaximized, isMaximized, triggerResetCamera, isHovering, isPhotoMode } = useStore();
+  
+  // 检测是否为移动端
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
 
   if (isPhotoMode) return null;
 
-  const buttonStyle = "p-3 bg-white/80 backdrop-blur-md rounded-full shadow-lg border border-white/50 text-pink-600 hover:bg-pink-100 transition-colors";
+  const buttonStyle = `p-${isMobile ? 2 : 3} bg-white/80 backdrop-blur-md rounded-full shadow-lg border border-white/50 text-pink-600 hover:bg-pink-100 transition-colors`;
 
   const containerVariants = {
     hidden: { opacity: 0, x: -20 },
@@ -38,22 +55,22 @@ export function ActionButtons() {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            className="flex flex-col gap-3"
+            className={`flex ${isMobile ? 'flex-row gap-2' : 'flex-col gap-3'}`}
           >
             <motion.button variants={itemVariants} onClick={() => setAction('nod')} className={buttonStyle} title="点头">
-              <CornerDownLeft size={18} />
+              <CornerDownLeft size={isMobile ? 14 : 18} />
             </motion.button>
             <motion.button variants={itemVariants} onClick={() => setAction('shake')} className={buttonStyle} title="摇头">
-              <ArrowLeftRight size={18} />
+              <ArrowLeftRight size={isMobile ? 14 : 18} />
             </motion.button>
             <motion.button variants={itemVariants} onClick={() => setAction('jump')} className={buttonStyle} title="跳跃">
-              <ArrowUp size={18} />
+              <ArrowUp size={isMobile ? 14 : 18} />
             </motion.button>
             <motion.button variants={itemVariants} onClick={toggleIsMaximized} className={buttonStyle} title={isMaximized ? '恢复' : '最大化'}>
-              <Maximize size={18} />
+              <Maximize size={isMobile ? 14 : 18} />
             </motion.button>
             <motion.button variants={itemVariants} onClick={triggerResetCamera} className={buttonStyle} title="重置视角">
-              <Camera size={18} />
+              <Camera size={isMobile ? 14 : 18} />
             </motion.button>
             <motion.button
               variants={itemVariants}
@@ -64,7 +81,7 @@ export function ActionButtons() {
               className={buttonStyle}
               title="恢复初始姿态"
             >
-              <RotateCcw size={18} />
+              <RotateCcw size={isMobile ? 14 : 18} />
             </motion.button>
           </motion.div>
         )}

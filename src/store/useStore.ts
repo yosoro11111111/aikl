@@ -231,6 +231,9 @@ export interface AppState {
   // UI State
   activePanel: 'none' | 'settings' | 'models' | 'scenes' | 'tasks' | 'memories' | 'furniture' | 'expressions';
   setActivePanel: (panel: 'none' | 'settings' | 'models' | 'scenes' | 'tasks' | 'memories' | 'furniture' | 'expressions') => void;
+  // 人物显示控制
+  showCharacters: boolean;
+  toggleCharacters: () => void;
   // Life Events & Personality
   lastLoginDate: string;
   updateLoginDate: () => void;
@@ -558,6 +561,9 @@ export const useStore = create<AppState>()(
       // UI State
       activePanel: 'none',
       setActivePanel: (panel) => set({ activePanel: panel }),
+      // 人物显示控制
+      showCharacters: true,
+      toggleCharacters: () => set((state) => ({ showCharacters: !state.showCharacters })),
       // Life Events
       lastLoginDate: new Date().toISOString().split('T')[0],
       updateLoginDate: () => set({ lastLoginDate: new Date().toISOString().split('T')[0] }),

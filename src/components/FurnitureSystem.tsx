@@ -256,7 +256,12 @@ export default function FurnitureSystem() {
                             >
                                 {/* Transform Controls */}
                                 {isEditMode && (
-                                    <div className="bg-white p-3 rounded-xl border border-gray-200 shadow-sm">
+                                    <motion.div 
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className="bg-white p-3 rounded-xl border border-gray-200 shadow-sm"
+                                    >
                                         <div className="flex items-center justify-between mb-2">
                                             <span className="text-xs text-gray-500 font-medium flex items-center gap-1.5">
                                                 <MousePointer2 size={12} />
@@ -292,7 +297,35 @@ export default function FurnitureSystem() {
                                                 </button>
                                             ))}
                                         </div>
-                                    </div>
+                                        
+                                        {/* 移动端确认和删除按钮 */}
+                                        {typeof window !== 'undefined' && window.innerWidth < 768 && (
+                                            <div className="flex gap-2 mt-3">
+                                                <button 
+                                                    onClick={() => {
+                                                        setTransformMode('translate');
+                                                        setSelectedFurnitureId(null);
+                                                    }}
+                                                    className="flex-1 bg-green-500 text-white py-2 px-3 rounded-lg text-xs font-medium hover:bg-green-600 transition-colors flex items-center justify-center gap-1"
+                                                >
+                                                    <Check size={14} />
+                                                    确定
+                                                </button>
+                                                <button 
+                                                    onClick={() => {
+                                                        if (selectedFurnitureId) {
+                                                            removeFurniture(selectedFurnitureId);
+                                                            setSelectedFurnitureId(null);
+                                                        }
+                                                    }}
+                                                    className="flex-1 bg-red-500 text-white py-2 px-3 rounded-lg text-xs font-medium hover:bg-red-600 transition-colors flex items-center justify-center gap-1"
+                                                >
+                                                    <Trash2 size={14} />
+                                                    删除
+                                                </button>
+                                            </div>
+                                        )}
+                                    </motion.div>
                                 )}
             
                                 {/* Character Selector */}
