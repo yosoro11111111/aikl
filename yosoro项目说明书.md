@@ -2,7 +2,7 @@
 
 Yosoro 是一个基于 Next.js 和 React Three Fiber 构建的 3D 沉浸式 AI 伴侣应用。它结合了先进的 Web 3D 技术和 AI 对话能力，为您提供一个生动、可爱且互动性极强的虚拟伙伴“露米娜”。
 
-![Project Preview](public/file.svg) <!-- 这里可以替换为实际的项目截图 -->
+![Project Preview](public/file.svg) <!-- 这里可以替换为实际的项目截图 -->1
 
 ## ✨ 核心特性
 
