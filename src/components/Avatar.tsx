@@ -18,6 +18,7 @@ import { useAvatarMovement } from '@/hooks/useAvatarMovement';
 import { VRMSpringBoneCollider, VRMSpringBoneColliderShapeSphere } from '@pixiv/three-vrm';
 import { useThree } from '@react-three/fiber';
 import { useViewportBoundary } from '@/hooks/useViewportBoundary';
+import { useActionAdapter } from '@/hooks/useActionAdapter';
 
 import { ModelConfig } from '@/store/useStore';
 
@@ -179,6 +180,13 @@ export function Avatar({ model, positionOffset }: AvatarProps) {
   useShyBehavior(vrm);
   useHandInteraction(vrm);
   const { startAudio, stopAudio, isListening } = useAudioLipSync(vrm);
+  
+  // 动作适配器 - 自动分析VRM文件并适配特殊动作
+  const { adapterConfig, triggerRandomAction, triggerEmotionBasedAction } = useActionAdapter(
+    vrm, 
+    model.id, 
+    model.url?.split('/').pop() || model.name + '.vrm'
+  );
   
   // --- 拖拽逻辑 ---
   const groupRef = useRef<THREE.Group>(null);

@@ -8,7 +8,7 @@ import { Panel } from '@/components/ui/Panel';
 import { Button } from '@/components/ui/Button';
 
 export default function ModelSelector() {
-  const { availableModels, activeModels, addActiveModel, removeActiveModel, setAvailableModels, setCurrentModel, apiKey, addMessage, activePanel, setActivePanel } = useStore();
+  const { availableModels, activeModels, addActiveModel, removeActiveModel, setAvailableModels, setCurrentModel, apiKey, addMessage, activePanel, setActivePanel, showCharacters, toggleCharacters } = useStore();
   const isOpen = activePanel === 'models';
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -156,6 +156,17 @@ export default function ModelSelector() {
                   leftIcon={<Upload size={14} />}
                 >
                   导入
+                </Button>
+                <Button
+                  onClick={() => activeModels.forEach(model => removeActiveModel(model.id))}
+                  variant="glass"
+                  size="sm"
+                  className="text-red-600 bg-white/70 hover:bg-white/90"
+                  title="关闭所有人物显示"
+                  aria-label="关闭所有人物显示"
+                  leftIcon={<Trash2 size={14} />}
+                >
+                  清空
                 </Button>
                 <span className="text-xs text-gray-600">已选 {activeModels.length}/3</span>
               </div>

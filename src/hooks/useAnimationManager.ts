@@ -4,6 +4,90 @@ import { useFrame } from '@react-three/fiber';
 import { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 
+// 特殊动作定义
+const SPECIAL_ACTIONS: Record<string, {
+  name: string;
+  bones: string[];
+  duration: number;
+  animation: (t: number, bones: Record<string, THREE.Object3D | null>) => void;
+}> = {
+  'dance': {
+    name: '舞蹈',
+    bones: ['hips', 'spine', 'leftUpperLeg', 'rightUpperLeg', 'leftLowerLeg', 'rightLowerLeg', 'leftUpperArm', 'rightUpperArm'],
+    duration: 3000,
+    animation: (t, bones) => {
+      const hips = bones.hips;
+      const spine = bones.spine;
+      if (hips) {
+        hips.rotation.y = Math.sin(t * 4) * 0.3;
+        hips.position.y = Math.sin(t * 8) * 0.1;
+      }
+      if (spine) {
+        spine.rotation.x = Math.sin(t * 6) * 0.2;
+      }
+    }
+  },
+  'wave': {
+    name: '挥手',
+    bones: ['rightUpperArm', 'rightLowerArm', 'rightHand'],
+    duration: 2000,
+    animation: (t, bones) => {
+      const rightUpperArm = bones.rightUpperArm;
+      const rightLowerArm = bones.rightLowerArm;
+      if (rightUpperArm) {
+        rightUpperArm.rotation.x = Math.sin(t * 8) * 0.5 + 0.5;
+      }
+      if (rightLowerArm) {
+        rightLowerArm.rotation.x = Math.sin(t * 8) * 0.3;
+      }
+    }
+  },
+  'bow': {
+    name: '鞠躬',
+    bones: ['spine', 'chest', 'head', 'hips'],
+    duration: 2000,
+    animation: (t, bones) => {
+      const spine = bones.spine;
+      const head = bones.head;
+      if (spine) {
+        spine.rotation.x = Math.sin(t * Math.PI) * 0.4;
+      }
+      if (head) {
+        head.rotation.x = Math.sin(t * Math.PI) * 0.2;
+      }
+    }
+  },
+  'victory': {
+    name: '胜利姿势',
+    bones: ['leftUpperArm', 'leftLowerArm', 'leftHand', 'rightUpperArm', 'rightLowerArm', 'rightHand'],
+    duration: 2000,
+    animation: (t, bones) => {
+      const leftUpperArm = bones.leftUpperArm;
+      const rightUpperArm = bones.rightUpperArm;
+      if (leftUpperArm) {
+        leftUpperArm.rotation.x = -Math.PI / 2;
+        leftUpperArm.rotation.z = Math.PI / 4;
+      }
+      if (rightUpperArm) {
+        rightUpperArm.rotation.x = -Math.PI / 2;
+        rightUpperArm.rotation.z = -Math.PI / 4;
+      }
+    }
+  },
+  'jump': {
+    name: '跳跃',
+    bones: ['hips', 'leftUpperLeg', 'rightUpperLeg', 'leftLowerLeg', 'rightLowerLeg'],
+    duration: 1500,
+    animation: (t, bones) => {
+      const hips = bones.hips;
+      if (hips) {
+        const jumpHeight = Math.sin(t * Math.PI) * 0.5;
+        hips.position.y = jumpHeight;
+      }
+    }
+  }
+};
+
 const IDLE_ANIMATIONS: Action[] = ['idle_look_around', 'idle_sway', 'idle_stretch', 'idle_subtle_shift'];
 const IDLE_TIME_RANGE = [5, 12]; 
 
@@ -89,26 +173,49 @@ export const useAnimationManager = (vrm: VRM | null, modelId?: string) => {
         actionTimeRef.current += delta;
         const t = actionTimeRef.current;
         
-        // Define bones at top level of the block
-        const head = vrm.humanoid?.getNormalizedBoneNode('head');
-        const spine = vrm.humanoid?.getNormalizedBoneNode('spine');
-        const hips = vrm.humanoid?.getNormalizedBoneNode('hips');
-        const leftUpperLeg = vrm.humanoid?.getNormalizedBoneNode('leftUpperLeg');
-        const rightUpperLeg = vrm.humanoid?.getNormalizedBoneNode('rightUpperLeg');
-        const leftLowerLeg = vrm.humanoid?.getNormalizedBoneNode('leftLowerLeg');
-        const rightLowerLeg = vrm.humanoid?.getNormalizedBoneNode('rightLowerLeg');
-        const leftUpperArm = vrm.humanoid?.getNormalizedBoneNode('leftUpperArm');
-        const rightUpperArm = vrm.humanoid?.getNormalizedBoneNode('rightUpperArm');
-        const leftLowerArm = vrm.humanoid?.getNormalizedBoneNode('leftLowerArm');
-        const rightLowerArm = vrm.humanoid?.getNormalizedBoneNode('rightLowerArm');
-        const leftHand = vrm.humanoid?.getNormalizedBoneNode('leftHand');
-        const rightHand = vrm.humanoid?.getNormalizedBoneNode('rightHand');
+        // 检查是否为特殊动作
+        const specialAction = SPECIAL_ACTIONS[currentAction];
+        
+        if (specialAction) {
+            // 特殊动作处理
+            const normalizedTime = t / specialAction.duration;
+            
+            // 获取所有需要的骨骼
+            const bones: Record<string, THREE.Object3D | null> = {};
+            specialAction.bones.forEach(boneName => {
+                bones[boneName] = vrm.humanoid?.getNormalizedBoneNode(boneName as any);
+            });
+            
+            // 执行特殊动作动画
+            specialAction.animation(normalizedTime, bones);
+            
+            // 检查动作是否完成
+            if (t >= specialAction.duration) {
+                setAction('idle');
+                actionTimeRef.current = 0;
+            }
+        } else {
+            // 原有动作处理逻辑
+            // Define bones at top level of the block
+            const head = vrm.humanoid?.getNormalizedBoneNode('head');
+            const spine = vrm.humanoid?.getNormalizedBoneNode('spine');
+            const hips = vrm.humanoid?.getNormalizedBoneNode('hips');
+            const leftUpperLeg = vrm.humanoid?.getNormalizedBoneNode('leftUpperLeg');
+            const rightUpperLeg = vrm.humanoid?.getNormalizedBoneNode('rightUpperLeg');
+            const leftLowerLeg = vrm.humanoid?.getNormalizedBoneNode('leftLowerLeg');
+            const rightLowerLeg = vrm.humanoid?.getNormalizedBoneNode('rightLowerLeg');
+            const leftUpperArm = vrm.humanoid?.getNormalizedBoneNode('leftUpperArm');
+            const rightUpperArm = vrm.humanoid?.getNormalizedBoneNode('rightUpperArm');
+            const leftLowerArm = vrm.humanoid?.getNormalizedBoneNode('leftLowerArm');
+            const rightLowerArm = vrm.humanoid?.getNormalizedBoneNode('rightLowerArm');
+            const leftHand = vrm.humanoid?.getNormalizedBoneNode('leftHand');
+            const rightHand = vrm.humanoid?.getNormalizedBoneNode('rightHand');
 
-        // Helper for resetting
-        const resetAction = () => {
-            setAction('idle');
-            actionTimeRef.current = 0;
-        };
+            // Helper for resetting
+            const resetAction = () => {
+                setAction('idle');
+                actionTimeRef.current = 0;
+            };
 
         switch (currentAction) {
             case 'nod':
@@ -586,6 +693,7 @@ export const useAnimationManager = (vrm: VRM | null, modelId?: string) => {
                 // For unhandled actions, just wait a bit then reset
                 if (t > 1.0) resetAction();
                 break;
+        }
         }
     } else {
       // Scene Reset (Smooth Reset)

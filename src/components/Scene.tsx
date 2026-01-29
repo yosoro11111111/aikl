@@ -127,7 +127,7 @@ export default function Scene() {
           <Suspense fallback={null}>
             <Detailed distances={[0, 8]}>
               <group>
-                {activeModels.map((model, index) => {
+                {useStore.getState().showCharacters && activeModels.map((model, index) => {
                   let positionOffset: [number, number, number] = [0, 0, 0];
                   
                   if (activeModels.length === 2) {
