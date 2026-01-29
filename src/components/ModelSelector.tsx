@@ -8,7 +8,7 @@ import { Panel } from '@/components/ui/Panel';
 import { Button } from '@/components/ui/Button';
 
 export default function ModelSelector() {
-  const { availableModels, activeModels, addActiveModel, removeActiveModel, setAvailableModels, apiKey, addMessage, activePanel, setActivePanel } = useStore();
+  const { availableModels, activeModels, addActiveModel, removeActiveModel, setAvailableModels, setCurrentModel, apiKey, addMessage, activePanel, setActivePanel } = useStore();
   const isOpen = activePanel === 'models';
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -46,6 +46,12 @@ export default function ModelSelector() {
         if (response.ok) {
           const models = await response.json();
           setAvailableModels(models);
+          
+          // 重置activeModels和currentModel，确保使用新的API路由格式
+          // 查找第一个可用模型作为默认模型
+          if (models.length > 0) {
+            setCurrentModel(models[0]);
+          }
         }
       } catch (error) {
         console.error('Failed to fetch models:', error);
@@ -53,7 +59,7 @@ export default function ModelSelector() {
     };
 
     fetchModels();
-  }, [setAvailableModels]);
+  }, [setAvailableModels, setCurrentModel]);
 
   const togglePanel = () => setActivePanel(isOpen ? 'none' : 'models');
 
