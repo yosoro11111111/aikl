@@ -10,11 +10,13 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     // 解码base64文件名
     const fileName = Buffer.from(resolvedParams.name, 'base64').toString('utf8');
     
-    // 构建静态文件路径
-    const filePath = `https://${request.headers.get('host') || 'localhost:3000'}/models/${encodeURIComponent(fileName)}`;
+    // 构建正确的静态文件URL
+    const host = request.headers.get('host') || 'localhost:3000';
+    const protocol = request.headers.get('x-forwarded-proto') || 'https';
+    const staticUrl = `${protocol}://${host}/models/${fileName}`;
     
-    // 使用fetch API获取文件
-    const response = await fetch(filePath);
+    // 在Edge Runtime中，使用fetch API读取静态文件
+    const response = await fetch(staticUrl);
     
     if (!response.ok) {
       return new NextResponse('File not found', { status: 404 });
