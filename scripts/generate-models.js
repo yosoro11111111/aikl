@@ -21,12 +21,11 @@ try {
     .filter(file => file.endsWith('.vrm'))
     .map(file => {
       const name = file.replace('.vrm', '');
-      // 使用base64编码的文件名作为API路由参数，避免URL编码的问题
-      const base64Name = Buffer.from(file).toString('base64').replace(/=/g, '');
+      // 使用原始文件名作为URL路径，浏览器会自动URL编码
       return {
         id: name,
         name: name,
-        url: `/api/models/files/${base64Name}`,
+        url: `/models/${file}`,
         description: '本地模型',
         defaultEmotion: 'neutral'
       };

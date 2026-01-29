@@ -2,602 +2,602 @@
   {
     "id": "avatar",
     "name": "avatar",
-    "url": "/api/models/files/YXZhdGFyLnZybQ",
+    "url": "/models/avatar.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "Bronya",
     "name": "Bronya",
-    "url": "/api/models/files/QnJvbnlhLnZybQ",
+    "url": "/models/Bronya.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "Dehya",
     "name": "Dehya",
-    "url": "/api/models/files/RGVoeWEudnJt",
+    "url": "/models/Dehya.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "Himeko",
     "name": "Himeko",
-    "url": "/api/models/files/SGltZWtvLnZybQ",
+    "url": "/models/Himeko.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "Katheryne",
     "name": "Katheryne",
-    "url": "/api/models/files/S2F0aGVyeW5lLnZybQ",
+    "url": "/models/Katheryne.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "Klara",
     "name": "Klara",
-    "url": "/api/models/files/S2xhcmEudnJt",
+    "url": "/models/Klara.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "lumina",
     "name": "lumina",
-    "url": "/api/models/files/bHVtaW5hLnZybQ",
+    "url": "/models/lumina.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "Mimi",
     "name": "Mimi",
-    "url": "/api/models/files/TWltaS52cm0",
+    "url": "/models/Mimi.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "Natasha",
     "name": "Natasha",
-    "url": "/api/models/files/TmF0YXNoYS52cm0",
+    "url": "/models/Natasha.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "Sampo",
     "name": "Sampo",
-    "url": "/api/models/files/U2FtcG8udnJt",
+    "url": "/models/Sampo.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "Welt",
     "name": "Welt",
-    "url": "/api/models/files/V2VsdC52cm0",
+    "url": "/models/Welt.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "yuki",
     "name": "yuki",
-    "url": "/api/models/files/eXVraS52cm0",
+    "url": "/models/yuki.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "七七",
     "name": "七七",
-    "url": "/api/models/files/5LiD5LiDLnZybQ",
+    "url": "/models/七七.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "七七2",
     "name": "七七2",
-    "url": "/api/models/files/5LiD5LiDMi52cm0",
+    "url": "/models/七七2.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "万叶",
     "name": "万叶",
-    "url": "/api/models/files/5LiH5Y+2LnZybQ",
+    "url": "/models/万叶.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "丽莎",
     "name": "丽莎",
-    "url": "/api/models/files/5Li96I6OLnZybQ",
+    "url": "/models/丽莎.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "久岐忍",
     "name": "久岐忍",
-    "url": "/api/models/files/5LmF5bKQ5b+NLnZybQ",
+    "url": "/models/久岐忍.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "九条裟罗",
     "name": "九条裟罗",
-    "url": "/api/models/files/5Lmd5p2h6KOf572XLnZybQ",
+    "url": "/models/九条裟罗.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "五郎 (1)",
     "name": "五郎 (1)",
-    "url": "/api/models/files/5LqU6YOOICgxKS52cm0",
+    "url": "/models/五郎 (1).vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "优菈 (1)",
     "name": "优菈 (1)",
-    "url": "/api/models/files/5LyY6I+IICgxKS52cm0",
+    "url": "/models/优菈 (1).vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "优菈 (2)",
     "name": "优菈 (2)",
-    "url": "/api/models/files/5LyY6I+IICgyKS52cm0",
+    "url": "/models/优菈 (2).vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "八重神子",
     "name": "八重神子",
-    "url": "/api/models/files/5YWr6YeN56We5a2QLnZybQ",
+    "url": "/models/八重神子.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "公子",
     "name": "公子",
-    "url": "/api/models/files/5YWs5a2QLnZybQ",
+    "url": "/models/公子.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "凝光",
     "name": "凝光",
-    "url": "/api/models/files/5Yed5YWJLnZybQ",
+    "url": "/models/凝光.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "凝光2",
     "name": "凝光2",
-    "url": "/api/models/files/5Yed5YWJMi52cm0",
+    "url": "/models/凝光2.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "凯亚 (2)",
     "name": "凯亚 (2)",
-    "url": "/api/models/files/5Yev5LqaICgyKS52cm0",
+    "url": "/models/凯亚 (2).vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "刻晴 (2)",
     "name": "刻晴 (2)",
-    "url": "/api/models/files/5Yi75pm0ICgyKS52cm0",
+    "url": "/models/刻晴 (2).vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "北斗",
     "name": "北斗",
-    "url": "/api/models/files/5YyX5paXLnZybQ",
+    "url": "/models/北斗.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "卡维",
     "name": "卡维",
-    "url": "/api/models/files/5Y2h57u0LnZybQ",
+    "url": "/models/卡维.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "可莉",
     "name": "可莉",
-    "url": "/api/models/files/5Y+v6I6JLnZybQ",
+    "url": "/models/可莉.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "坎蒂丝",
     "name": "坎蒂丝",
-    "url": "/api/models/files/5Z2O6JKC5LidLnZybQ",
+    "url": "/models/坎蒂丝.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "多莉",
     "name": "多莉",
-    "url": "/api/models/files/5aSa6I6JLnZybQ",
+    "url": "/models/多莉.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "女士",
     "name": "女士",
-    "url": "/api/models/files/5aWz5aOrLnZybQ",
+    "url": "/models/女士.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "妮露",
     "name": "妮露",
-    "url": "/api/models/files/5aau6ZyyLnZybQ",
+    "url": "/models/妮露.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "安柏",
     "name": "安柏",
-    "url": "/api/models/files/5a6J5p+PLnZybQ",
+    "url": "/models/安柏.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "安柏2",
     "name": "安柏2",
-    "url": "/api/models/files/5a6J5p+PMi52cm0",
+    "url": "/models/安柏2.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "希儿",
     "name": "希儿",
-    "url": "/api/models/files/5biM5YS/LnZybQ",
+    "url": "/models/希儿.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "托马",
     "name": "托马",
-    "url": "/api/models/files/5omY6amsLnZybQ",
+    "url": "/models/托马.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "散兵",
     "name": "散兵",
-    "url": "/api/models/files/5pWj5YW1LnZybQ",
+    "url": "/models/散兵.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "散兵2",
     "name": "散兵2",
-    "url": "/api/models/files/5pWj5YW1Mi52cm0",
+    "url": "/models/散兵2.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "早柚",
     "name": "早柚",
-    "url": "/api/models/files/5pep5p+aLnZybQ",
+    "url": "/models/早柚.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "枫原万叶",
     "name": "枫原万叶",
-    "url": "/api/models/files/5p6r5Y6f5LiH5Y+2LnZybQ",
+    "url": "/models/枫原万叶.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "柯莱",
     "name": "柯莱",
-    "url": "/api/models/files/5p+v6I6xLnZybQ",
+    "url": "/models/柯莱.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "派蒙",
     "name": "派蒙",
-    "url": "/api/models/files/5rS+6JKZLnZybQ",
+    "url": "/models/派蒙.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "流浪者",
     "name": "流浪者",
-    "url": "/api/models/files/5rWB5rWq6ICFLnZybQ",
+    "url": "/models/流浪者.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "温迪",
     "name": "温迪",
-    "url": "/api/models/files/5rip6L+qLnZybQ",
+    "url": "/models/温迪.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "烟绯",
     "name": "烟绯",
-    "url": "/api/models/files/54Of57uvLnZybQ",
+    "url": "/models/烟绯.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "珊瑚宫心海",
     "name": "珊瑚宫心海",
-    "url": "/api/models/files/54+K55Ga5a6r5b+D5rW3LnZybQ",
+    "url": "/models/珊瑚宫心海.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "珐露珊",
     "name": "珐露珊",
-    "url": "/api/models/files/54+Q6Zyy54+KLnZybQ",
+    "url": "/models/珐露珊.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "班尼特",
     "name": "班尼特",
-    "url": "/api/models/files/54+t5bC854m5LnZybQ",
+    "url": "/models/班尼特.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "琴 (1)",
     "name": "琴 (1)",
-    "url": "/api/models/files/55C0ICgxKS52cm0",
+    "url": "/models/琴 (1).vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "琴 (2)",
     "name": "琴 (2)",
-    "url": "/api/models/files/55C0ICgyKS52cm0",
+    "url": "/models/琴 (2).vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "瑶瑶",
     "name": "瑶瑶",
-    "url": "/api/models/files/55G255G2LnZybQ",
+    "url": "/models/瑶瑶.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "甘雨 (2)",
     "name": "甘雨 (2)",
-    "url": "/api/models/files/55SY6ZuoICgyKS52cm0",
+    "url": "/models/甘雨 (2).vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "申鹤 (2)",
     "name": "申鹤 (2)",
-    "url": "/api/models/files/55Sz6bmkICgyKS52cm0",
+    "url": "/models/申鹤 (2).vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "申鹤",
     "name": "申鹤",
-    "url": "/api/models/files/55Sz6bmkLnZybQ",
+    "url": "/models/申鹤.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "白术",
     "name": "白术",
-    "url": "/api/models/files/55m95pyvLnZybQ",
+    "url": "/models/白术.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "砂糖",
     "name": "砂糖",
-    "url": "/api/models/files/56CC57OWLnZybQ",
+    "url": "/models/砂糖.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "神里绫华",
     "name": "神里绫华",
-    "url": "/api/models/files/56We6YeM57ur5Y2OLnZybQ",
+    "url": "/models/神里绫华.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "空",
     "name": "空",
-    "url": "/api/models/files/56m6LnZybQ",
+    "url": "/models/空.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "米卡",
     "name": "米卡",
-    "url": "/api/models/files/57Gz5Y2hLnZybQ",
+    "url": "/models/米卡.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "纳西妲",
     "name": "纳西妲",
-    "url": "/api/models/files/57qz6KW/5aayLnZybQ",
+    "url": "/models/纳西妲.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "罗莎莉亚 (2)",
     "name": "罗莎莉亚 (2)",
-    "url": "/api/models/files/572X6I6O6I6J5LqaICgyKS52cm0",
+    "url": "/models/罗莎莉亚 (2).vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "罗莎莉亚",
     "name": "罗莎莉亚",
-    "url": "/api/models/files/572X6I6O6I6J5LqaLnZybQ",
+    "url": "/models/罗莎莉亚.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "胡桃",
     "name": "胡桃",
-    "url": "/api/models/files/6IOh5qGDLnZybQ",
+    "url": "/models/胡桃.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "艾尔海森",
     "name": "艾尔海森",
-    "url": "/api/models/files/6Im+5bCU5rW35qOuLnZybQ",
+    "url": "/models/艾尔海森.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "莫娜",
     "name": "莫娜",
-    "url": "/api/models/files/6I6r5aicLnZybQ",
+    "url": "/models/莫娜.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "莫娜2",
     "name": "莫娜2",
-    "url": "/api/models/files/6I6r5aicMi52cm0",
+    "url": "/models/莫娜2.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "莱依拉",
     "name": "莱依拉",
-    "url": "/api/models/files/6I6x5L6d5ouJLnZybQ",
+    "url": "/models/莱依拉.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "菲谢尔 (2)",
     "name": "菲谢尔 (2)",
-    "url": "/api/models/files/6I+y6LCi5bCUICgyKS52cm0",
+    "url": "/models/菲谢尔 (2).vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "蔡诺",
     "name": "蔡诺",
-    "url": "/api/models/files/6JSh6K+6LnZybQ",
+    "url": "/models/蔡诺.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "行秋",
     "name": "行秋",
-    "url": "/api/models/files/6KGM56eLLnZybQ",
+    "url": "/models/行秋.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "诺艾尔",
     "name": "诺艾尔",
-    "url": "/api/models/files/6K+66Im+5bCULnZybQ",
+    "url": "/models/诺艾尔.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "辛焱",
     "name": "辛焱",
-    "url": "/api/models/files/6L6b54SxLnZybQ",
+    "url": "/models/辛焱.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "迪卢克 (2)",
     "name": "迪卢克 (2)",
-    "url": "/api/models/files/6L+q5Y2i5YWLICgyKS52cm0",
+    "url": "/models/迪卢克 (2).vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "重云",
     "name": "重云",
-    "url": "/api/models/files/6YeN5LqRLnZybQ",
+    "url": "/models/重云.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "钟离",
     "name": "钟离",
-    "url": "/api/models/files/6ZKf56a7LnZybQ",
+    "url": "/models/钟离.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "长野原宵宫",
     "name": "长野原宵宫",
-    "url": "/api/models/files/6ZW/6YeO5Y6f5a615a6rLnZybQ",
+    "url": "/models/长野原宵宫.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "阿蕾奇诺",
     "name": "阿蕾奇诺",
-    "url": "/api/models/files/6Zi/6JW+5aWH6K+6LnZybQ",
+    "url": "/models/阿蕾奇诺.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "雷泽",
     "name": "雷泽",
-    "url": "/api/models/files/6Zu35rO9LnZybQ",
+    "url": "/models/雷泽.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "雷电将军",
     "name": "雷电将军",
-    "url": "/api/models/files/6Zu355S15bCG5YabLnZybQ",
+    "url": "/models/雷电将军.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "雷电将军2",
     "name": "雷电将军2",
-    "url": "/api/models/files/6Zu355S15bCG5YabMi52cm0",
+    "url": "/models/雷电将军2.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "香菱",
     "name": "香菱",
-    "url": "/api/models/files/6aaZ6I+xLnZybQ",
+    "url": "/models/香菱.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "魈",
     "name": "魈",
-    "url": "/api/models/files/6a2ILnZybQ",
+    "url": "/models/魈.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "鹿野院平藏 (2)",
     "name": "鹿野院平藏 (2)",
-    "url": "/api/models/files/6bm/6YeO6Zmi5bmz6JePICgyKS52cm0",
+    "url": "/models/鹿野院平藏 (2).vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   },
   {
     "id": "鹿野院平藏",
     "name": "鹿野院平藏",
-    "url": "/api/models/files/6bm/6YeO6Zmi5bmz6JePLnZybQ",
+    "url": "/models/鹿野院平藏.vrm",
     "description": "本地模型",
     "defaultEmotion": "neutral"
   }
