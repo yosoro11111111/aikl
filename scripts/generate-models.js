@@ -24,7 +24,7 @@ try {
       return {
         id: name,
         name: name,
-        url: `/models/${encodeURIComponent(file)}`,
+        url: `/models/${file}`,
         description: '本地模型',
         defaultEmotion: 'neutral'
       };
