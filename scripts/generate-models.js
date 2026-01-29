@@ -6,19 +6,6 @@ const outputFile = path.join(process.cwd(), 'src', 'data', 'models.json');
 
 console.log('Generating models.json...');
 
-// 从环境变量或配置中获取域名
-const getDomain = () => {
-  // 优先使用环境变量
-  if (process.env.NEXT_PUBLIC_BASE_URL) {
-    return process.env.NEXT_PUBLIC_BASE_URL;
-  }
-  
-  // 如果没有环境变量，使用默认域名
-  return 'https://ll.yosoro.site';
-};
-
-const baseDomain = getDomain();
-
 try {
   // Ensure directory exists
   if (!fs.existsSync(modelsDir)) {
@@ -35,14 +22,14 @@ try {
     .map(file => {
       const name = file.replace('.vrm', '');
       
-      // 使用完整的静态文件URL，避免API路由问题
-       return {
-         id: name,
-         name: name,
-         url: `${baseDomain}/models/${encodeURIComponent(file)}`,
-         description: '本地模型',
-         defaultEmotion: 'neutral'
-       };
+      // 使用相对路径，网页运行时动态构建完整URL
+        return {
+          id: name,
+          name: name,
+          url: `/models/${encodeURIComponent(file)}`,
+          description: '本地模型',
+          defaultEmotion: 'neutral'
+        };
     });
 
   // Write to file
