@@ -22,43 +22,34 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       }
     }
     
-    // 在Edge Runtime中，我们需要使用fetch来获取静态文件
-    // 首先尝试从当前部署的域名获取文件
-    const deploymentUrl = `${request.nextUrl.origin}/models/${encodeURIComponent(fileName)}`;
+    // 在生产环境中，模型文件应该位于根目录下的/models路径
+    // 使用当前请求的域名，而不是硬编码的域名
+    const staticUrl = `${request.nextUrl.origin}/models/${encodeURIComponent(fileName)}`;
+    
+    console.log('Fetching model file from:', staticUrl);
     
     // 使用fetch获取文件内容
-    const response = await fetch(deploymentUrl);
+    const response = await fetch(staticUrl);
     
     if (response.ok) {
       // 如果文件存在，返回文件内容
       const fileContent = await response.arrayBuffer();
       
-      return new NextResponse(fileContent, {
-        headers: {
-          'Content-Type': 'application/octet-stream',
-          'Content-Disposition': `inline; filename="${encodeURIComponent(fileName)}"`,
-          'Cache-Control': 'public, max-age=31536000, immutable'
-        }
-      });
-    }
-    
-    // 如果当前部署域名找不到文件，尝试备用URL
-    const fallbackUrl = `https://ll.yosoro.site/models/${encodeURIComponent(fileName)}`;
-    const fallbackResponse = await fetch(fallbackUrl);
-    
-    if (fallbackResponse.ok) {
-      const fileContent = await fallbackResponse.arrayBuffer();
+      console.log('Model file found:', fileName);
       
       return new NextResponse(fileContent, {
         headers: {
           'Content-Type': 'application/octet-stream',
           'Content-Disposition': `inline; filename="${encodeURIComponent(fileName)}"`,
-          'Cache-Control': 'public, max-age=31536000, immutable'
+          'Cache-Control': 'public, max-age=31536000, immutable',
+          'Access-Control-Allow-Origin': '*'
         }
       });
     }
     
-    // 如果两个URL都找不到文件，返回404
+    console.log('Model file not found:', fileName, 'Status:', response.status);
+    
+    // 如果文件不存在，返回404
     return new NextResponse('File not found', { status: 404 });
   } catch (error) {
     console.error('Error serving model file:', error);
