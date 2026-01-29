@@ -21,11 +21,12 @@ try {
     .filter(file => file.endsWith('.vrm'))
     .map(file => {
       const name = file.replace('.vrm', '');
-      // 使用原始文件名作为URL路径，浏览器会自动URL编码
+      // 使用encodeURIComponent编码文件名，确保URL路径正确
+      const encodedFile = encodeURIComponent(file);
       return {
         id: name,
         name: name,
-        url: `/models/${file}`,
+        url: `/models/${encodedFile}`,
         description: '本地模型',
         defaultEmotion: 'neutral'
       };
